@@ -8,7 +8,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         with open('data/ingredients.csv', encoding='utf-8') as file:
-            file_reader = csv.reader(file, delimiter=",")
+            file_reader = csv.reader(file)
             for ingredient in file_reader:
                 Ingredient.objects.get_or_create(title=ingredient[0],
                                                  dimension=ingredient[1])
