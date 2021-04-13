@@ -7,8 +7,9 @@ class Command(BaseCommand):
     help = 'Заполнение БД ингридиентами'
 
     def handle(self, *args, **options):
-        with open('ingredients.csv', encoding='utf-8') as r_file:
-            file_reader = csv.reader(r_file, delimiter=",")
-            for i in file_reader:
-                Ingredient.objects.get_or_create(title=i[0], dimension=i[1])
-        return print('Ингредиенты созданы')
+        with open('data/ingredients.csv', encoding='utf-8') as file:
+            file_reader = csv.reader(file, delimiter=",")
+            for ingredient in file_reader:
+                Ingredient.objects.get_or_create(title=ingredient[0],
+                                                 dimension=ingredient[1])
+        print('Ингредиенты добавлены')

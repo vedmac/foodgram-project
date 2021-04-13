@@ -11,10 +11,10 @@ User = get_user_model()
 class Ingredient(models.Model):
     title = models.CharField(
         'Название ингредиента',
-        max_length=150,
+        max_length=256,
         db_index=True
     )
-    dimension = models.CharField('Единица измерения', max_length=10)
+    dimension = models.CharField('Единица измерения', max_length=64)
 
     class Meta:
         ordering = ('title', )
