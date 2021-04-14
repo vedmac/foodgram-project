@@ -4,23 +4,23 @@ const ingredientsContainer = document.querySelector('.form__field-group-ingredie
 const nameIngredient = document.querySelector('#nameIngredient');
 const formDropdownItems = document.querySelector('.form__dropdown-items');
 const cantidadVal = document.querySelector('#cantidadVal');
-const cantidad = document.querySelector('#cantidad')
+const cantidad = document.querySelector('#cantidad');
 const addIng = document.querySelector('#addIng');
 
 const api = new Api(apiUrl);
 const header = new Header(counterId);
 
 const defineInitialIndex = function () {
-    const ingredients = ingredientsContainer.querySelectorAll('.form__field-item-ingredient')
-    if (ingredients.length === 0) { return 1 }
+    const ingredients = ingredientsContainer.querySelectorAll('.form__field-item-ingredient');
+    if (ingredients.length === 0) { return 1; }
     const data = Array.from(ingredients).map(item => {
-        if (!item.getAttribute('id')) { return 0 }
-        if (!item.getAttribute('id').split('_')[1]) { return 0 }
-        return Number(item.getAttribute('id').split('_')[1])
-    })
-    data.sort((a, b) => a-b)
-    return data[data.length - 1] + 1
-}
+        if (!item.getAttribute('id')) { return 0; }
+        if (!item.getAttribute('id').split('_')[1]) { return 0; }
+        return Number(item.getAttribute('id').split('_')[1]);
+    });
+    data.sort((a, b) => a-b);
+    return data[data.length - 1] + 1;
+};
 
 function Ingredients() {
     let cur = defineInitialIndex();
@@ -28,7 +28,7 @@ function Ingredients() {
     const dropdown = (e) => {
         if (e.target.classList.contains('form__item-list')) {
             nameIngredient.value = e.target.textContent;
-            formDropdownItems.style.display = ''
+            formDropdownItems.style.display = '';
             cantidadVal.textContent = e.target.getAttribute('data-val');
         }
     };
@@ -54,8 +54,8 @@ function Ingredients() {
         if(e.target.classList.contains('form__field-item-delete')) {
             const item = e.target.closest('.form__field-item-ingredient');
             item.removeEventListener('click',eventDelete);
-            item.remove()
-        };
+            item.remove();
+        }
     };
     ingredientsContainer.addEventListener('click', eventDelete);
     // получение данных из инпутов для добавления
@@ -78,7 +78,7 @@ function Ingredients() {
         getValue,
         addIngredient,
         dropdown
-    }
+    };
 }
 
 const cbEventInput = (elem) => {
@@ -86,14 +86,14 @@ const cbEventInput = (elem) => {
         if(e.length !== 0 ) {
             const items = e.map( elem => {
                 return `<a class="form__item-list" data-val="${elem.dimension}"">${elem.title}</a>`
-            }).join(' ')
+            }).join(' ');
             formDropdownItems.style.display = 'flex';
             formDropdownItems.innerHTML = items;
         }
     })
     .catch( e => {
-        console.log(e)
-    })
+        console.log(e);
+    });
 };
 
 const eventInput = debouncing(cbEventInput, 1000);
