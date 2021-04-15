@@ -1,10 +1,14 @@
+Dockerfile
+Makefile
 docker-compose.yaml
 db.sqlite3
+
+
 .git/*
 env/
 venv/
 .venv/
-
+nginx/
 __pycache__/
 
 .idea
@@ -13,6 +17,9 @@ __pycache__/
 .LSOverride
 .vscode
 .project
+.gitignore
+
+
 
 *.sublime-project
 *.sublime-workspace
