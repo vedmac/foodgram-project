@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED 1
 ENV APP_HOME=/usr/src/web
 
 RUN apk update \
-    && apk add postgresql-dev gcc python3-dev musl-dev
+    && apk add postgresql-dev gcc python3-dev musl-dev wkhtmltopdf
 
 COPY ./requirements.txt ./
 
