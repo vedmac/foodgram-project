@@ -25,7 +25,7 @@ const configButton = {
             text: `<span class="icon-favorite icon-favorite_active"></span>`
         }
     }
-};
+}
 const purchases = new Purchases(configButton.purchases, api);
 const favorites = new Favorites(configButton.favorites, api);
 
@@ -35,5 +35,3 @@ const cardList = new CardList(container, '.card', header, api, true, {
 });
 
 cardList.addEvent();
-
-

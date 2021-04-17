@@ -94,7 +94,7 @@
     <div class="form__group">
       <label for="{{ form.text.id_for_label }}" class="form__label">Описание</label>
       <div class="form__field-group">
-        {{ form.text|addclass:'form__textarea' }}
+        {{ form.text|addclass:'form__textarea' | safe }}
         <span class="form__error">{{ form.text.errors }}</span>
       </div>
     </div>
