@@ -14,7 +14,7 @@ const configButton = {
             text: `<span class="icon-check button__icon"></span> Рецепт добавлен`
         }
     }
-};
+}
 const purchases = new Purchases(configButton.purchases, api);
 
 const cardList = new CardList(container, '.card', header, api, false, {
