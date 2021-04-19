@@ -10,10 +10,6 @@ rebuild:
 	sudo docker-compose rm -f web
 	sudo docker-compose pull web
 	sudo docker-compose up -d
-	docker-compose exec web python manage.py collectstatic --noinput
-	docker-compose exec web python manage.py migrate --noinput
-	docker-compose exec web python manage.py filldb
-
 start:
 	docker-compose up -d
 
