@@ -7,9 +7,9 @@ install:
 	sudo systemctl enable docker
 rebuild:
 	sudo docker-compose down
-	docker image rm vermolov/foodgram
 	sudo docker-compose pull web
 	sudo docker-compose up -d
+	sudo docker system prune -f
 start:
 	docker-compose up -d
 
