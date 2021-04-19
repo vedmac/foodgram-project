@@ -84,18 +84,6 @@ jobs:
           make update
           make install
           make rebuild
-    - name: start docker-compose
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          sudo docker pull vermolov/foodgram:latest 
-          sudo sh -c "cd app; docker-compose down"
-          sudo sh -c "cd app; docker-compose rmi -f web"
-          sudo sh -c "cd app; docker-compose up -d"
-          sudo docker image prune -f
 
   send_message:
     runs-on: ubuntu-latest
