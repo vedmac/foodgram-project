@@ -79,10 +79,10 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          sudo docker pull vermolov/foodgram:latest 
-          sudo sh -c "cd app; docker-compose stop"
-          sudo sh -c "cd app; docker-compose rm -f web"
-          sudo sh -c "cd app; docker-compose up -d"
+          cd app
+          sudo docker-compose stop
+          sudo docker pull vermolov/foodgram:latest
+          sudo docker-compose up -d 
           sudo docker image prune -f
           
 
