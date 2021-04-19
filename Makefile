@@ -7,7 +7,7 @@ install:
 	sudo systemctl enable docker
 rebuild:
 	sudo docker-compose down
-	sudo docker-compose rmi -f web
+	sudo docker-compose rm -f web
 	sudo docker-compose pull web
 	sudo docker-compose up -d
 	docker-compose exec web python manage.py collectstatic --noinput
