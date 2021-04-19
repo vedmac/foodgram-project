@@ -79,10 +79,11 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         script: |
+          cd app
           sudo apt install make
           make update
           make install
-          sudo sh -c "cd app; make rebuild"
+          make rebuild
 
   send_message:
     runs-on: ubuntu-latest
