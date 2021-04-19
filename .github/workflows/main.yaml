@@ -80,10 +80,9 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd app
-          sudo apt install make
-          make update
-          make install
-          make rebuild
+          sudo docker-compose pull
+          sudo docker-compose restart
+          sudo docker image prune -f
 
   send_message:
     runs-on: ubuntu-latest
