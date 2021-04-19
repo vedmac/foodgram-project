@@ -26,7 +26,7 @@ SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY', default='mde3$!4=jlhehubo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '104.131.98.84', ]
 
 
 # Application definition
@@ -166,4 +166,4 @@ REST_FRAMEWORK = {
 }
 
 PAGINATION_PAGE_SIZE = 6
-SITE_ID = 1
+SITE_ID = 2
