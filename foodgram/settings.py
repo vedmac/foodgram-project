@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 import os
+import ast
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY', default='mde3$!4=jlhehubo-h2-vo-98j!%oi)^uglu!cb#3h1+4o)n@h')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', default=False)
+DEBUG = ast.literal_eval(os.environ.get('DEBUG', default='False'))
 
 ALLOWED_HOSTS = ['104.131.98.84', 'localhost', '127.0.0.1', ]
 
