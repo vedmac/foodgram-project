@@ -6,7 +6,7 @@ install:
 	sudo systemctl start docker
 	sudo systemctl enable docker
 rebuild:
-	sudo docker-compose down
+	sudo docker-compose stop
 	sudo docker-compose pull web
 	sudo docker-compose up -d
 	sudo docker system prune -f
