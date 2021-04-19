@@ -9,7 +9,7 @@ rebuild:
 	sudo docker-compose down
 	sudo docker-compose rmi -f web
 	sudo docker-compose pull web
-	sudo docker-compose up -d"
+	sudo docker-compose up -d
 	docker-compose exec web python manage.py collectstatic --noinput
 	docker-compose exec web python manage.py migrate --noinput
 	docker-compose exec web python manage.py filldb
