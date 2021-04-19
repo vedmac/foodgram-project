@@ -16,6 +16,6 @@ RUN python3 -m pip install --upgrade pip \
 
 WORKDIR $APP_HOME
 COPY . $APP_HOME
-
+RUN chmod a+x /usr/src/web/entrypoint.sh
 ENTRYPOINT [ "/usr/src/web/entrypoint.sh" ]
 CMD gunicorn foodgram.wsgi:application --bind 0.0.0.0:8000
