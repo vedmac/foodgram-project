@@ -23,7 +23,7 @@ filldb:
 	docker-compose exec web python manage.py filldb
 
 createsuperuser:
-	docker-compose run web python manage.py createsuperuser
+	docker-compose exec web python manage.py createsuperuser
 
 stop:
 	docker-compose down
