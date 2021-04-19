@@ -10,16 +10,16 @@ services:
     env_file:
       - ./.env
 
-    web:
-      image: vermolov/foodgram:latest
-      restart: always
-      volumes:
-        - static_data:/usr/src/web/static/
-        - media_data:/usr/src/web/media
-      env_file:
-        - ./.env
-      depends_on:
-        - db
+  web:
+    image: vermolov/foodgram:latest
+    restart: always
+    volumes:
+      - static_data:/usr/src/web/static/
+      - media_data:/usr/src/web/media
+    env_file:
+      - ./.env
+    depends_on:
+      - db
 
   nginx:
     image: nginx:1.19.6-alpine
