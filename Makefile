@@ -9,7 +9,7 @@ rebuild:
 	sudo docker-compose stop
 	sudo docker-compose pull web
 	sudo docker-compose up -d
-	sudo docker system prune -f
+	sudo docker image prune -f
 start:
 	docker-compose up -d
 
