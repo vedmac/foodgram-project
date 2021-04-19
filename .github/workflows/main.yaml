@@ -81,7 +81,7 @@ jobs:
         script: |
           cd app
           sudo docker-compose stop
-          sudo docker-compose pull
+          sudo docker pull vermolov/foodgram:latest
           sudo docker-compose up -d --force-recreate
           sudo docker image prune -f
 
