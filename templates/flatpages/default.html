@@ -9,11 +9,11 @@
 
 {% block content %}
 <div class="main__header">
-  <h1 class="main__title">{{ flatpage.title | safe | linebreaks }}</h1>
+  <h1 class="main__title">{{ flatpage.title }}</h1>
 </div>
 <div class="custom-center-block">
   <p class="custom-text-block">
-    {{ flatpage.content }}
+    {{ flatpage.content | safe | linebreaksbr }}
   </p>
 </div>
 {% endblock content %}
