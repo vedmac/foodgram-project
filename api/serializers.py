@@ -5,27 +5,19 @@ from recipes.models import Ingredient
 
 from .models import Favorite, Purchase, Subscription
 
-# Как я не пытался заменить CustomModelSerializer на owner = serializers.
-# HiddenField(default=serializers.CurrentUserDefault()), пробовал передавать
-# контекст. Всеравно что-то отваливается. Либо приходится городить грабли
-# с create.
-
-
-class CustomModelSerializer(serializers.ModelSerializer):
-    def create(self, validated_data):
-        validated_data['user'] = self.context['request'].user
-        return self.Meta.model.objects.create(**validated_data)
-
-
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ('title', 'dimension')
         model = Ingredient
 
 
-class SubscriptionSerializer(CustomModelSerializer):
+class SubscriptionSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
     class Meta:
-        fields = ('author', )
+        fields = ('author', 'user')
         model = Subscription
 
     def validate_author(self, value):
@@ -35,13 +27,21 @@ class SubscriptionSerializer(CustomModelSerializer):
         return value
 
 
-class FavoriteSerializer(CustomModelSerializer):
+class FavoriteSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
     class Meta:
-        fields = ('recipe', )
+        fields = ('recipe', 'user')
         model = Favorite
 
 
-class PurchaseSerializer(CustomModelSerializer):
+class PurchaseSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
     class Meta:
-        fields = ('recipe', )
+        fields = ('recipe', 'user')
         model = Purchase
