@@ -5,6 +5,11 @@ from recipes.models import Ingredient
 
 from .models import Favorite, Purchase, Subscription
 
+# Как я не пытался заменить CustomModelSerializer на owner = serializers.
+# HiddenField(default=serializers.CurrentUserDefault()), пробовал передавать
+# контекст. Всеравно что-то отваливается. Либо приходится городить грабли
+# с create.
+
 
 class CustomModelSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
