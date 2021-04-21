@@ -1,7 +1,15 @@
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
+
 from recipes.models import Ingredient
+
 from .models import Favorite, Purchase, Subscription
+
+
+class CustomModelSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        validated_data['user'] = self.context['request'].user
+        return self.Meta.model.objects.create(**validated_data)
 
 
 class IngredientSerializer(serializers.ModelSerializer):
@@ -10,7 +18,7 @@ class IngredientSerializer(serializers.ModelSerializer):
         model = Ingredient
 
 
-class SubscriptionSerializer(serializers.CurrentUserDefault):
+class SubscriptionSerializer(CustomModelSerializer):
     class Meta:
         fields = ('author', )
         model = Subscription
@@ -22,13 +30,13 @@ class SubscriptionSerializer(serializers.CurrentUserDefault):
         return value
 
 
-class FavoriteSerializer(serializers.CurrentUserDefault):
+class FavoriteSerializer(CustomModelSerializer):
     class Meta:
         fields = ('recipe', )
         model = Favorite
 
 
-class PurchaseSerializer(serializers.CurrentUserDefault):
+class PurchaseSerializer(CustomModelSerializer):
     class Meta:
         fields = ('recipe', )
         model = Purchase
