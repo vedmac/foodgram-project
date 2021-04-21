@@ -21,7 +21,11 @@
         </li>
       {% endfor %}
     </ul>
-    <a href="{% url 'purchases_download' %}"><button class="button button_style_blue">Скачать список</button></a>
+    {%  if recipes  %}
+      <a href="{% url 'purchases_download' %}"><button class="button button_style_blue">Скачать список</button></a>
+    {%  else  %}
+      <p>Список покупок пуст</p>
+    {%  endif  %}
   </div>
 {% endblock %}
 {% block js %}
