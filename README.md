@@ -1,4 +1,5 @@
 [![Actions Status](https://github.com/Bytlot/foodgram-project/workflows/foodgram/badge.svg)](https://github.com/Bytlot/foodgram-project/actions)
+[![Actions Status](https://github.com/Bytlot/foodgram-project/workflows/CodeQL/badge.svg)](https://github.com/Bytlot/foodgram-project/actions)
 
 # Foodgram-project
 
