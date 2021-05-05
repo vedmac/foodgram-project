@@ -27,7 +27,7 @@ SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY', default='mde3$!4=jlhehubo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = ast.literal_eval(os.environ.get('DEBUG', default='False'))
 
-ALLOWED_HOSTS = ['104.131.98.84', 'localhost', '127.0.0.1', ]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', ]
 
 
 # Application definition
