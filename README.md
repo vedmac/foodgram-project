@@ -32,7 +32,7 @@ POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 DB_HOST=db
 DB_PORT=5432
-DEBUG=Folse
+DEBUG=False
 ```
 
 ### Installing
