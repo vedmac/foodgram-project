@@ -1,6 +1,6 @@
 asgiref==3.2.10
 autopep8==1.5.6
-Django==3.1.9
+Django==3.1.10
 django-autoslug==1.9.8
 djangorestframework==3.12.4
 flake8==3.9.0
