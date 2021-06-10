@@ -8,6 +8,7 @@ Foodgram is a webapp that lets you create your own recipes and share them with o
 
 ### Tech stack
 - Python 3.8
+- JavaScript
 - Django and Django Rest Framework
 - PostgreSQL
 - Django ORM
@@ -16,8 +17,9 @@ Foodgram is a webapp that lets you create your own recipes and share them with o
 - GitHub Actions
 - JWT token authentication
 
+---
 
-### Prerequisites
+### **Requirements**
 
 Requirements before start:
 
